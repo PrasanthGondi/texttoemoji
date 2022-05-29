@@ -15,8 +15,8 @@ const initializeDBAndServer = async () => {
       filename: dbpath,
       driver: sqlite3.Database,
     });
-    app.listen(process.env.PORT || 3005, () => {
-      console.log("Server running at http://localhost:3005/");
+    app.listen(process.env.PORT || 5001, () => {
+      console.log("Server running at http://localhost:5001/");
     });
   } catch (e) {
     console.log(`DB Error:${e.message}`);
@@ -27,7 +27,7 @@ const initializeDBAndServer = async () => {
 initializeDBAndServer();
 
 app.post("/post", async (request, response) => {
-  //response.set("Access-Control-Allow-Origin", "*");
+  response.set("Access-Control-Allow-Origin", "*");
   const { inputValue } = request.body;
   console.log(inputValue);
   const query1 = `INSERT INTO emojiTable(value) values ('${inputValue}')`;
