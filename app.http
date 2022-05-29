@@ -1,0 +1,13 @@
+GET http://localhost:3005/list/
+
+###
+
+POST http://localhost:3005/post
+Content-Type: application/json
+
+{
+  "inputValue":"Hellodsadsadsasd"
+}
+
+###
+DELETE http://localhost:3005/ 
