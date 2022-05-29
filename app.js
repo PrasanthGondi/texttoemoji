@@ -6,7 +6,7 @@ const cors = require("cors");
 const app = express();
 const dbpath = path.join(__dirname, "app.db");
 app.use(express.json());
-app.use(cors({ origin: "*" }));
+app.use(cors());
 let db = null;
 
 const initializeDBAndServer = async () => {
@@ -27,7 +27,7 @@ const initializeDBAndServer = async () => {
 initializeDBAndServer();
 
 app.post("/post", async (request, response) => {
-  response.set("Access-Control-Allow-Origin", "*");
+  //response.set("Access-Control-Allow-Origin", "*");
   const { inputValue } = request.body;
   console.log(inputValue);
   const query1 = `INSERT INTO emojiTable(value) values ('${inputValue}')`;
