@@ -2,11 +2,15 @@ const express = require("express");
 const sqlite3 = require("sqlite3");
 const { open } = require("sqlite");
 const path = require("path");
-const cors = require("cors");
 const app = express();
 const dbpath = path.join(__dirname, "app.db");
-app.use(express.json({ origin: "*" }));
-app.use(cors({ origin: "http://192.168.176.1:3004" }));
+app.use(express.json());
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 let db = null;
 
 const initializeDBAndServer = async () => {
