@@ -27,7 +27,7 @@ const initializeDBAndServer = async () => {
 initializeDBAndServer();
 
 app.post("/post", async (request, response) => {
-  response.set("Access-Control-Allow-Origin", "*");
+  response.set('Access-Control-Allow-Origin', '*');
   const { inputValue } = request.body;
   console.log(inputValue);
   const query1 = `INSERT INTO emojiTable(value) values ('${inputValue}')`;
